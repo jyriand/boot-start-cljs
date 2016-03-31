@@ -9,12 +9,18 @@
                  [adzerk/boot-cljs-repl "0.3.0"]
                  [com.cemerick/piggieback "0.2.1"  :scope "test"]
                  [weasel                  "0.7.0"  :scope "test"]
-                 [org.clojure/tools.nrepl "0.2.12" :scope "test"]])
+                 [org.clojure/tools.nrepl "0.2.12" :scope "test"]
+                 [crisptrutski/boot-cljs-test "0.2.2-SNAPSHOT"]
+                 [adzerk/boot-test            "1.0.6"]])
 
 (require '[adzerk.boot-cljs :refer [cljs]]
          '[pandeiro.boot-http :refer [serve]]
          '[adzerk.boot-reload :refer [reload]]
-         '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]])
+         '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]]
+         '[crisptrutski.boot-cljs-test :refer [test-cljs]]
+         '[adzerk.boot-test :refer :all])
+
+(task-options! test-cljs {:js-env :phantom})
 
 (deftask dev []
   (comp
@@ -23,3 +29,13 @@
    (reload)
    (cljs)
    (target :dir #{"out"})))
+
+(deftask testing []
+  (merge-env! :source-paths #{"test/cljs"})
+  identity)
+
+(deftask auto-test []
+  (comp (testing)
+        (watch)
+        (test-cljs)
+        (test)))
