@@ -11,7 +11,8 @@
                  [weasel                  "0.7.0"  :scope "test"]
                  [org.clojure/tools.nrepl "0.2.12" :scope "test"]
                  [crisptrutski/boot-cljs-test "0.2.2-SNAPSHOT"]
-                 [adzerk/boot-test            "1.0.6"]])
+                 [adzerk/boot-test            "1.0.6"]
+                 [reagent "0.6.0-alpha"]])
 
 (require '[adzerk.boot-cljs :refer [cljs]]
          '[pandeiro.boot-http :refer [serve]]

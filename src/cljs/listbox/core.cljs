@@ -1,6 +1,16 @@
-(ns listbox.core)
+(ns listbox.core
+  (:require [reagent.core :as r]))
 
-(enable-console-print!)
+(defonce clicks (r/atom 0))
 
-;; print to the console
-(println "Hello, World!")
+(defn current-page []
+  [:div {:on-click #(swap! clicks inc)}
+   "I have been clicked " @clicks " times."])
+
+(defn mount-root []
+  (r/render [current-page] (.getElementById js/document "app")))
+
+(defn init! []
+  (mount-root))
+
+(init!)
