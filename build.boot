@@ -29,11 +29,12 @@
 
 (deftask dev []
   (comp
-   (serve :dir "out")
    (watch)
    (reload)
+   (cljs-repl)
    (cljs :compiler-options {:devcards true})
-   (target :dir #{"out"})))
+   (serve :dir "target")
+   (target :dir #{"target"})))
 
 (deftask testing []
   (merge-env! :source-paths #{"test/cljs"})
