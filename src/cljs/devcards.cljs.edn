@@ -1,0 +1,3 @@
+{:require  [listbox-devcards.core]
+ :compiler-options {:devcards true}
+ :init-fns [listbox-devcards.core/main]}

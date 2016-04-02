@@ -1,8 +1,8 @@
 (ns listbox.views)
 
 (defn home-page []
-  [:div [:h2 "Test page"]
-   [:div [:a {:href "/about"} "go to about page"]]
+  [:div.demo [:h2 "Test page"]
+   [:div [:a {:href "/about"} "go to about page 2"]]
    [:div [:a {:href "/test"} "go to test page"]]])
 
 (defn about-page []
