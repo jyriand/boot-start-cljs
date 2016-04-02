@@ -12,7 +12,10 @@
                  [org.clojure/tools.nrepl "0.2.12" :scope "test"]
                  [crisptrutski/boot-cljs-test "0.2.2-SNAPSHOT"]
                  [adzerk/boot-test            "1.0.6"]
-                 [reagent "0.6.0-alpha"]])
+                 [reagent "0.6.0-alpha"]
+                 [reagent-utils "0.1.7"]
+                 [secretary "1.2.3"]
+                 [venantius/accountant "0.1.7"]])
 
 (require '[adzerk.boot-cljs :refer [cljs]]
          '[pandeiro.boot-http :refer [serve]]
