@@ -1,6 +1,7 @@
 #!/bin/bash
 
-default_name='listbox'
+default_name='boot-start-cljs'
+default_package='boot_start_cljs'
 
 set -e
 echo ''
@@ -21,12 +22,14 @@ read -e name
 dname=${name//[-]/_}
 
 # Replace namespaces
-find . -type f \( -name "*.cljs" -or -name "*.edn" -or -name "*.boot" \) -exec sed -i '' -e "s/listbox/${name}/" {} \;
+find . -type f \( -name "*.cljs" -or -name "*.edn" -or -name "*.boot" \) -exec sed -i '' -e "s/${default_name}/${name}/" {} \;
+
+echo "replaced namespaces"
 
 # Replace direcrories
-mv "src/cljs/${default_name}" "src/cljs/${dname}"
-mv "test/cljs/${default_name}" "test/cljs/${dname}"
-mv "src/cljs/${default_name}_devcards" "src/cljs/${dname}_devcards"
+mv "src/cljs/${default_package}" "src/cljs/${dname}"
+mv "test/cljs/${default_package}" "test/cljs/${dname}"
+mv "src/cljs/${default_package}_devcards" "src/cljs/${dname}_devcards"
 mv "../${default_name}" "../${name}"
 
-cd .. && cd $name
+echo "replaced directories"

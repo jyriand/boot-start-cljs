@@ -1,4 +1,4 @@
-(ns listbox.views)
+(ns boot-start-cljs.views)
 
 (defn home-page []
   [:div.demo [:h2 "Test page"]

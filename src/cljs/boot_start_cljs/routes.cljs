@@ -1,5 +1,5 @@
-(ns listbox.routes
-  (:require [listbox.views :as views]
+(ns boot-start-cljs.routes
+  (:require [boot-start-cljs.views :as views]
             [reagent.session :as session]
             [secretary.core :as secretary :include-macros]))
 

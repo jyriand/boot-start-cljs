@@ -1,8 +1,8 @@
-(ns listbox-devcards.core
+(ns boot-start-cljs-devcards.core
   (:require
    [devcards.core :as dc :include-macros true]
    [reagent.core :as reagent]
-   [listbox.views :as views])
+   [boot-start-cljs.views :as views])
   (:require-macros [devcards.core :refer [defcard defcard-rg deftest tests]]
                    [cljs.test :refer [is testing async]]))
 

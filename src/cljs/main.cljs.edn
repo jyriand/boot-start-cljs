@@ -1,2 +1,2 @@
-{:require  [listbox.core]
- :init-fns [listbox.core/init!]}
+{:require  [boot-start-cljs.core]
+ :init-fns [boot-start-cljs.core/init!]}
