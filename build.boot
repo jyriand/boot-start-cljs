@@ -40,6 +40,11 @@
   (merge-env! :source-paths #{"test/cljs"})
   identity)
 
+(deftask run-tests []
+  (comp (testing)
+        (test-cljs)
+        (test)))
+
 (deftask auto-test []
   (comp (testing)
         (watch)

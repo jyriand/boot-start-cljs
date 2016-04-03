@@ -11,3 +11,4 @@ This is a simple clojurescript project template using boot for runnin dev enviro
 
 Also, devcards is included, you can see your cards going to `http://localhost:3000/devcards.html`
 
+You can run tests using `boot run-tests` to run them once or `boot auto-test` to run tests every time file changes.
