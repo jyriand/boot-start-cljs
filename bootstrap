@@ -1,0 +1,32 @@
+#!/bin/bash
+
+default_name='listbox'
+
+set -e
+echo ''
+
+user () {
+    printf "\r  [ \033[0;33m?\033[0m ] $1 "
+}
+
+info () {
+    printf "  [ \033[00;34m..\033[0m ] $1"
+}
+
+
+info 'rename project'
+user ' - Project name(ex: my-project)?'
+read -e name
+
+dname=${name//[-]/_}
+
+# Replace namespaces
+find . -type f \( -name "*.cljs" -or -name "*.edn" -or -name "*.boot" \) -exec sed -i '' -e "s/listbox/${name}/" {} \;
+
+# Replace direcrories
+mv "src/cljs/${default_name}" "src/cljs/${dname}"
+mv "test/cljs/${default_name}" "test/cljs/${dname}"
+mv "src/cljs/${default_name}_devcards" "src/cljs/${dname}_devcards"
+mv "../${default_name}" "../${name}"
+
+cd .. && cd $name
